@@ -1,0 +1,159 @@
+<div id="myModal" style="display: block" class="modal" ng-show="imgClk">
+    <div class="modal-content">
+        <span class="close" ng-click="imgClk = false">&times;</span>
+        <img class="modal-content-img" id="img01" src='{{primaryDataImg}}' alt="Ninja Professional Blender with Single Serve Blending Cups">
+    </div>
+</div>
+<div class="container"><!--Start Container-->
+    <div class="row"><!--Row which contains carousel on the left and product description on the right-->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><!--Column which contains the Title and Carousel-->
+            <div class="title">
+                <span>{{item.title}}</span><!--Displaying Title-->
+                <div class="pic"><img src='{{primaryDataImg}}'/></div><!--Displaying Primary Image-->
+                <button type="button" aria-label="View larger image" ng-click="imgClk = true" class="btn view-lg"><!--Button for View Large option-->
+                    <span class="glyphicon glyphicon-zoom-in"></span> view larger
+                </button>
+                <carousel style="align:center"><!--Displaying product images three at a time-->
+                    <slide ng-repeat="slide in item.Images[0].AlternateImages">
+                        <div>
+                            <div>
+                                <img ng-src="{{slide.image}}" ng-click="updatePrimaryImg(slide.image)"
+                                     class="img-responsive">
+                            </div>
+                            <div>
+                                <img ng-src="{{item.Images[0].AlternateImages[$index+1 > item.Images[0].AlternateImages.length-1 ? 0 : $index+1].image}}"
+                                     ng-click="updatePrimaryImg(item.Images[0].AlternateImages[$index+1 > item.Images[0].AlternateImages.length-1 ? 0 : $index+1].image)"
+                                     class="img-responsive">
+                            </div>
+                            <div>
+                                <img ng-src="{{item.Images[0].AlternateImages[$index+2 > item.Images[0].AlternateImages.length-1 ? 1 : $index+2].image}}"
+                                     ng-click="updatePrimaryImg(item.Images[0].AlternateImages[$index+2 > item.Images[0].AlternateImages.length-1 ? 0 : $index+2].image)"
+                                     class="img-responsive">
+                            </div>
+                        </div>
+                    </slide>
+                </carousel><!--End of carousel-->
+            </div>
+        </div><!--End of Column which contains the Title and Carousel-->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><!--Column for Displaying product information-->
+            <div class="price-container">
+            <!--Displaying Formatted Price Value-->
+            <span class="price-title">
+					{{item.Offers[0].OfferPrice[0].formattedPriceValue}}
+				</span>
+                <!--Displaying Price Qualifier-->
+                <span class="offer-title">{{item.Offers[0].OfferPrice[0].priceQualifier}}</span>
+            </div>
+            <!--Displaying Short description regarding the product-->
+            <div class="promo-container">
+                <i ng-repeat="promotion in item.Promotions" class="fa fa-tag fa-lg">
+                    <span class="promo-title">{{promotion.Description[0].shortDescription}}</span>
+                </i>
+            </div>
+            <!--Displaying quantity. User can add quantity as needed-->
+            <div class="quantity-container">
+                quantity:
+                <div class="pull-right">
+                    <i class="fa fa-minus-circle fa-lg minus" aria-hidden="true"
+                       ng-click="quantity > 1 ?quantity=quantity-1 : quantity"
+                    ></i>
+                    <span class="quantity-show" ng-bind="quantity"></span>
+                    <i class="fa fa-plus-circle fa-lg plus" aria-hidden="true" ng-click="quantity=quantity+1"></i>
+                </div>
+            </div>
+            <!--Displaying Pickup in store and Add to cart buttons-->
+            <div class="btn-group-lg padding-20">
+                <button aria-label="pick up in store" ng-if="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 2" class="btn btn-large pick-up-btn">PICK UP IN STORE</button>
+                <button aria-label="add to cart" ng-if="item.purchasingChannelCode == 0 || item.purchasingChannelCode == 1" class="btn btn-large add-cart-btn">ADD TO CART</button>
+                <span>find in a Store</span>
+            </div>
+            <!--Displaying return policy-->
+            <div class="row returns-div">
+            <span class="col-lg-2 col-md-2 col-sm-2 col-xs-3 returns-lbl">returns
+            </span>
+            <span class="col-lg-10 col-md-10 col-sm-10 col-xs-9" style="font-size: 11px">
+                This item must be returned within 30 dys of the ship date. See return policy for details.
+                Prices, promotions, styles and availability may vary by sore and online
+            </span>
+            </div>
+            <!--Displaying ADD to Registry, List and Share buttons-->
+            <div class="padding-20">
+                <button aria-label="add to registry" class="btn btn-choice">ADD TO REGISTRY</button>
+                <button aria-label="add to list" class="btn btn-choice">ADD TO LIST</button>
+                <button aria-label="share" class="btn btn-choice">SHARE</button>
+            </div>
+            <!--Displaying Product description-->
+            <div class="product-txt">
+            <h3>product highlights</h3>
+            <ul role="Product features">
+                <li role="Product feature" ng-repeat="highlight in item.ItemDescription[0].features">
+                    <div ng-bind-html="highlight"></div>
+                </li>
+            </ul>
+            </div>
+        </div><!--End of Column for Displaying product information-->
+    </div><!--End of Row which contains carousel on the left and product description on the right-->
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><!--Column for displaying Ratings and Reviews-->
+        <div class="col-xs-6 text-left">
+                <span class="star-rating star-lg" star-rating rating-value="5"
+                     data-max="5" on-rating-selected="rateFunction(rating)">
+                </span>    
+            <span style="color:black"><strong>overall</strong></span>
+        </div>
+        <div class="col-xs-6 text-right">
+            <p class="view-all"><a ng-click="view_all_reviews=true">view all {{item.CustomerReview[0].totalReviews}} reviews</a></p>
+        </div>
+        <div style="margin-top: 10px; background-color: whitesmoke;" class="col-xs-12"><!--Displaying PRO and CON sections-->    
+            <div class="row pro-con-div-style">
+                <div class="con-pro-border-style">
+                <div class="col-lg-6 col-ms-6 col-sm-6 col-xs-6 con-pro-border">
+                    <p class="pro-heading-srx"><span>PRO</span>most helpful 4-5 star review</p>
+                </div>
+                <div class="col-lg-6 col-ms-6 col-sm-6 col-xs-6">
+                    <p class="pro-heading-srx"><span>CON</span>most helpful 1-2 star review</p>
+                </div>
+            </div>
+            </div>
+            <div class="row pro-con-div-style"><!--Row for displaying PRO and CON ratings-->
+            <div class="col-xs-6 pro-first"><!--Column for displaying PRO section-->
+                <div class="star-rating" star-rating rating-value="proRating" data-max="5"></div><!--Displaying Star rating-->
+                <div><!--Displaying Single PRO review-->
+                    <h5><strong>{{item.CustomerReview[0].Pro[0].title}}</strong></h5>
+                    <p>{{item.CustomerReview[0].Pro[0].review}}</p>
+                    <a href="javascript: void(0)" target="_blank">{{item.CustomerReview[0].Pro[0].screenName}}</a> {{toJsDate(item.CustomerReview[0].Pro[0].datePosted) | date: 'mediumDate'}}
+                </div>
+                <hr/>
+                <!--Displaying all PRO reviews-->
+                <div ng-show="view_all_reviews"  ng-repeat="convalue_pros in item.CustomerReview[0].Reviews" ng-if="convalue_pros.overallRating >= 3">
+                    <div class="star-rating" star-rating  rating-value="convalue_pros.overallRating" data-max="5"></div>
+                    <h5><strong>{{convalue_pros.title}}</strong></h5>
+                    <p>{{convalue_pros.review}}</p>
+                    <a href="javascript: void(0)" target="_blank">{{convalue_pros.screenName}}</a> {{toJsDate(convalue_pros.datePosted) | date: 'mediumDate'}}
+                    <hr/>
+                </div>
+            </div><!--End of Column for displaying PRO section-->
+            <div class="col-xs-6 con-first">
+                <div class="star-rating" star-rating rating-value="conRating" max="5"></div><!--Displaying Star rating-->
+                    <div><!--Displaying Single CON review-->
+                        <h5><strong>{{item.CustomerReview[0].Con[0].title}}</strong></h5>
+                        <p>{{item.CustomerReview[0].Con[0].review}}</p>
+                        <a href="javascript: void(0)" target="_blank">{{item.CustomerReview[0].Con[0].screenName}}</a> {{toJsDate(item.CustomerReview[0].Con[0].datePosted) | date: 'mediumDate'}}
+                    </div>
+                <hr/>
+                <!--Displaying all CON reviews-->
+                    <div ng-show="view_all_reviews"  ng-repeat="convalue_pros in item.CustomerReview[0].Reviews" ng-if="convalue_pros.overallRating < 3">
+                        <div class="star-rating" star-rating  rating-value="convalue_pros.overallRating" max="5"></div>
+                        <h5><strong>{{convalue_pros.title}}</strong></h5>
+                        <p>{{convalue_pros.review}}</p>
+                        <p><a href="javascript: void(0)" target="_blank">{{convalue_pros.screenName}}</a> {{toJsDate(convalue_pros.datePosted) | date: 'mediumDate'}}</p>
+                <hr/>
+                    </div>
+            </div>
+        </div><!--End of Row for displaying PRO and CON ratings-->
+    </div><!--End of PRO and CON sections-->
+
+</div><!--End of Column for displaying Ratings and Reviews-->
+</div><!--End of Container-->
+
+<link href="styles/itemDetails.css" rel="stylesheet">
+

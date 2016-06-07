@@ -1,0 +1,343 @@
+body{
+    padding-bottom: 50px;
+}
+
+.title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    line-height: 120%;
+    text-align: center;
+    padding: 50px;
+}
+.pic
+{
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+
+/****************************PRODUCT DETAILS SECTION***************************/
+.price-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.offer-title {
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.promo-title {
+    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #CC0000;
+}
+
+.quantity-show{
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.fa-minus-circle, .fa-plus-circle {
+    color: #A1A1A1;
+}
+
+.fa-tag {
+    color: #CC0000;
+}
+
+.product-txt h3{
+    font: normal 32px Helvetica;
+}
+
+.product-txt ul{
+    font: normal 16px Helvetica;
+    line-height: 24px;
+    padding-left: 20px;
+    color: #666666;
+}
+
+.returns-div{
+    padding-top: 20px;
+}
+
+.returns-lbl {
+    border-right: 1px solid #cccccc;
+    color: #666666;
+    font: normal 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.btn-large {
+    width: 49%;
+    color: white;
+}
+
+.btn-large:hover,
+.btn-large:focus {
+    color: white;
+}
+
+.pick-up-btn{
+        background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,1) 100%);
+}
+
+.add-cart-btn{
+        background: linear-gradient(to bottom, rgba(204,0,0,0.65) 0%,rgba(204,0,0,0.65) 9%,rgba(204,0,0,1) 79%,rgba(204,0,0,1) 100%);
+}
+
+.padding-20 {
+    padding-top: 20px;
+}
+
+.padding-20 span{
+    margin-left:90px;
+    font-weight:bold;
+    text-align: center;
+}
+
+.quantity-container {
+    border: 1px solid #e2e2e2;
+    margin-top: 20px;
+    width: 50%;
+    padding: 10px;
+}
+
+.promo-container {
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn-choice {
+    width: 32%;
+}
+
+.price-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+/**********************END OF PRODUCT DETAILS SECTION****************************/
+
+/********************************CAROUSEL STYLING********************************/
+img {
+    margin: auto;
+    width: 400px;
+}
+
+.img-responsive {
+    float: left;
+    max-width: 20%;
+}
+
+.img-responsive:hover,
+.img-responsive:focus {
+    cursor: pointer;
+    border: 1px solid #e2e2e2;
+}
+.view-lg{
+    border:none;
+    background-color: transparent;
+    margin-right:80px;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+    position: absolute;
+}
+
+.carousel-indicators {
+    overflow: auto;
+    position: static;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.carousel-indicators li {
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: auto;
+    margin: 0 !important;
+    width: auto;
+}
+
+.carousel-indicators li img {
+    display: block;
+    opacity: 0.2;
+}
+
+.carousel-indicators li.active img {
+    opacity: 1;
+}
+
+.carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+
+.carousel-outer {
+    position: relative;
+}
+
+.carousel-inner {
+    margin-left: 50px;
+    padding-bottom: 30px;
+}
+
+.carousel-control .glyphicon-chevron-right:before {
+    align-content: center;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #0f0f0f;
+}
+
+.carousel-control .glyphicon-chevron-left:before {
+    font-size: 20px;
+    font-weight: normal;
+    color: #0f0f0f;
+}
+
+.carousel-control.left {
+    margin-left: 0px;
+    color: black;
+}
+
+.carousel-control.right {
+    margin-right: 75px;
+    color: black;
+}
+
+/*****************************END OF CAROUSEL STYLING********************************/
+
+/***************************RATING AND PRO CON SECTION******************************/
+
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+
+ul.rating {
+    display: inline-block;
+}
+
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.rating .filled {
+    color: #CC0000;
+}
+
+.star-lg{
+
+    font-size: 20px;
+}
+
+.view-all a{
+    cursor:pointer;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.pro-first{
+
+    padding-top: 10px;
+}
+
+.con-first{
+
+    padding-top: 10px;
+}
+
+.con-pro-border-style{
+    border-bottom: 1px solid #cccccc;
+    overflow: hidden;
+    margin: 0 15px;
+}
+.pro-con-div-style{
+    background-color: #f6f5f5;
+}
+.con-pro-border{
+    padding: 0px;
+}
+
+.pro-heading-srx{
+
+    font: normal 12px Helvetica;
+    padding: 15px 0 8px 0;
+}
+.pro-heading-srx span{
+    font: bold 18px Helvetica;
+    display: block;
+}
+
+/************************END OF RATING AND PRO CON SECTION*****************************/
+
+/********************************* VIEW LARGE SECTION**********************************/
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content, .modal-content-img {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+}
+
+.modal-content-img {
+    border: none;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.plus:hover,
+.plus:focus,
+.minus:hover,
+.minus:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/******************************END OF VIEW LARGE SECTION**********************************/
+
